@@ -89,21 +89,6 @@ class UrlController {
 
   }
 
-
-  async getMostAccessedUrls({request, response}) {
-    const array = [];
-    const keys = await Redis.scan('0', 'MATCH', '*');
-
-    return keys;
-    keys.forEach( async key => {
-        array.push(await Redis.get(key));
-    });
-
-    return array;
-
-  }
-
-
   /**********************************************************************************************************************
   *                                                   HELPER FUNCTIONS
   **********************************************************************************************************************/

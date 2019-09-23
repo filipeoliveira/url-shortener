@@ -17,6 +17,9 @@
 const Route = use('Route')
 const Redis = use('Redis')
 
+Route.get('/', () => {
+  return 'Bemobi hire.me URL SHORTENER application is running.';
+})
+
 Route.put('/shorten', 'UrlController.shortenUrl')
 Route.get('/retrieve/:alias', 'UrlController.retrieve')
-Route.get('/access', 'UrlController.getMostAccessedUrls')
