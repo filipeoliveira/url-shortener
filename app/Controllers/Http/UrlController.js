@@ -104,7 +104,7 @@ shorten(url) {
 }
 
 parseCustomAlias(alias) {
-  return alias.substring(0,7).replace(" ", '_')
+  return alias.substring(0,7).replace(" ", '_').replace(/\//g, '_').replace(/\+/g, '_')
 }
 
 
