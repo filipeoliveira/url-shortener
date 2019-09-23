@@ -1,12 +1,12 @@
 ### Bemobi hire.me
 Este projeto consiste em uma API de encurtador de URLs.
 
-####Tecnologias usadas:
+#### Tecnologias usadas:
 - Node 8 com a framework AdonisJS
 - Redis
 - Docker
 
-###Execução
+### Execução
 ##### Terminal
 1. Clone do repositório.
 2.  Instalação das dependências através do "npm install"
@@ -16,10 +16,10 @@ Este projeto consiste em uma API de encurtador de URLs.
 1. Clone do repositório, acessar a pasta do projeto e executar "docker-compose up".
 
 ### Endpoints
-Descrição | Método  | URL | Parâmetros 
-------------- | -------------
-Encurta uma URL | PUT  | /shorten |  url, custom_alias(opcional)
-Acessa uma URL encurtada, caso exista, através do alias| GET  | /retrieve/{alias} | alias 
+| Descriçao  | Método | URL | Parâmetros |
+| --- | --- | --- | --- |
+| Encurta uma URL | PUT | /shorten | url, custom_alias(opcional) |
+| Acessa uma URL encurtada, caso exista, através do alias | GET | /retrieve/{alias} | alias |
 
 #### Algoritmo de hash
 A estratégia usada para geração do hash final foi:
@@ -36,9 +36,9 @@ Caso um alias não seja específicado, o algoritmo se inicia:
 2. É gerado um número pseudoaleatório entre 0 e 1 que é multiplicado ao ser multiplicado pelo range de caracteres permitidos resultará no índice do caracter escolhido para compor o alias.
 Por exemplo:
 
-Número aleatório | Multiplicação  | Índice | Caracter 
-------------- | -------------
-0.17 |  0.17 * 62 = 10.54 | 10  |  strings[10] = "k"
+| Número aleatório  | Multiplicaço | Índice | Caracter |
+| --- | --- | --- | --- |
+| 0.17 |  0.17 * 62 = 10.54 | 10  |  strings[10] = "k" |
 
 Tal algoritmo é repetido 7 vezes. Resultando em possíveis (62^7) alias únicos.
 
